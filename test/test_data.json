@@ -1,0 +1,86 @@
+{
+  "tests": {
+    "test_global_quote_function": {
+      "data": {
+        "function": "GLOBAL_QUOTE"
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=GLOBAL_QUOTE&apikey=",
+      "expected_status_code": 200
+    },
+    "test_fx_daily_function": {
+      "data": {
+        "function": "FX_DAILY"
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=FX_DAILY&apikey=",
+      "expected_status_code": 200
+    },
+    "test_currency_exchange_rate_function": {
+      "data": {
+        "function": "CURRENCY_EXCHANGE_RATE"
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=CURRENCY_EXCHANGE_RATE&apikey=",
+      "expected_status_code": 200
+    },
+    "test_global_quote_function_with_symbol": {
+      "data": {
+        "function": "GLOBAL_QUOTE",
+        "symbol": "MSFT"
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=GLOBAL_QUOTE&symbol=MSFT&apikey=",
+      "expected_status_code": 200
+    },
+    "test_fx_daily_function_with_symbols": {
+      "data": {
+        "function": "FX_DAILY",
+        "from_symbol": "EUR",
+        "to_symbol": "USD"
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=FX_DAILY&from_symbol=EUR&to_symbol=USD&apikey=",
+      "expected_status_code": 200
+    },
+    "test_currency_exchange_rate_function_with_symbols": {
+      "data": {
+        "function": "CURRENCY_EXCHANGE_RATE",
+        "from_symbol": "EUR",
+        "to_symbol": "USD"
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=CURRENCY_EXCHANGE_RATE&from_symbol=EUR&to_symbol=USD&apikey=",
+      "expected_status_code": 200
+    },
+    "test_times_is_ignored": {
+      "data": {
+        "function": "CURRENCY_EXCHANGE_RATE",
+        "times": 1000
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=CURRENCY_EXCHANGE_RATE&apikey=",
+      "expected_status_code": 200
+    },
+    "test_ints_are_ignored": {
+      "data": {
+        "function": "CURRENCY_EXCHANGE_RATE",
+        "fifty": 50
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=CURRENCY_EXCHANGE_RATE&apikey=",
+      "expected_status_code": 200
+    },
+    "test_many_data_parameters": {
+      "data": {
+        "function": "SMA",
+        "symbol": "TSLA",
+        "interval": "5min",
+        "time_period": "200",
+        "series_type": "open"
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=SMA&symbol=TSLA&interval=5min&time_period=200&series_type=open&apikey=",
+      "expected_status_code": 200
+    },
+    "test_bad_endpoints": {
+      "data": {
+        "function": "SMA",
+        "path": "bad_path"
+      },
+      "expected_url": "https://www.alphavantage.co/query?function=&function=SMA&apikey=",
+      "expected_status_code": 200
+    }
+  }
+}

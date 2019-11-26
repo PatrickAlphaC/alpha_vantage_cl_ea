@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: alpha-vantage-cl-ea
+Version: 0.1
+Summary: Alpha Vantage official external adapter
+Home-page: https://github.com/alphavantage/alpha_vantage_cl_ea
+Author: Alpha Vantage
+Author-email: admin@alphavantage.co
+License: UNKNOWN
+Description: # alphavantage.co Python 3.x External Adapter for Chainlink
+        
+        Full documentation for Alpha Vantage can be found [here](https://www.alphavantage.co/documentation/)
+        
+        **Adapter Formats**: Google Cloud Function, AWS Lambda and Docker
+        
+        **All Endpoints (functions) supported** 
+        
+        ## Cloud Installation:
+        Make the bash script executable
+        
+        ```chmod +x ./create_zip.bsh```
+        
+        Create the adapter zip for your cloud provider ( gcs or aws )
+        
+        ```./create_zip.bsh aws```
+        
+        Upload the created zip to your provider and set the appropriate handler ( gcs_handler or aws_handler ) to be triggered by a HTTP event.
+        
+        Create an ALPHAVANTAGE_API_KEY environment variable and set it to your Alpha Vantage api key
+        
+        ## Docker Installation:
+        Build the image
+        ```
+        docker build -t alpha-vantage-cl-ea .
+        ```
+        Run the container while passing in your ALPHAVANTAGE_API_KEY
+        ```
+        docker run -e ALPHAVANTAGE_API_KEY=************** -p 5000:5000 alpha-vantage-cl-ea
+        ```
+        The adapter endpoint will be accessable from ```http://localhost/:5000/alpha-vantage-cl-ea```
+        
+        
+        ## Sample Job Spec
+        ```
+        {
+          "initiators": [
+            {
+              "type": "web",
+              "params": {
+              }
+            }
+          ],
+          "tasks": [
+            {
+              "type": "alpha-vantage-cl-ea-docker",
+              "confirmations": 0,
+              "params": {
+                "function": "GLOBAL_QUOTE",
+                "symbol": "MSFT"
+              }
+            }
+          ],
+          "startAt": null,
+          "endAt": null
+        ```
+        ## Sample Job Spec Result
+        ```
+        ???
+        # TODO
+        
+        ## Other Examples
+        ```test_data.json``` contains example payloads for all supported endpoints, paths and their parameters.
+        
+        Full documentation for Alpha Vantage can be found [here](https://www.alphavantage.co/documentation/)
+        
+        
+        
+        
+        
+        
+        
+        
+Keywords: financial,timeseries,api,trade,chainlink,blockchain,externaladapter,fintech,stockapi
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
