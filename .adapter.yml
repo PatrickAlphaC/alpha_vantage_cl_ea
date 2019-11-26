@@ -1,4 +1,4 @@
-name: Alpha Vantage
+name: Alpha Vantage Official
 description: Official Alpha Vantage Adapter
 node_identifier: alpha_vantage_cl_ea
 platforms:
