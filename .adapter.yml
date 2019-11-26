@@ -9,7 +9,6 @@ data_sources:
   - name: Alpha Vantage
     url: https://alphavantage.co
 parameters:
-  - apikey
   - function
   - interval
   - symbol
